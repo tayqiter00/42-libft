@@ -1,9 +1,9 @@
 #include "libft.h"
 
 /** 'size' should include space for null
- *  copies size - 1 chars from src to dst and GUARANTEES to NULL terminate it
- *  returns length of src string 
- *  
+ *  'size' is expected to be sizeof(dest)
+ *  Copies size - 1 chars from src to dst and GUARANTEES to null terminate it (if size > 0)
+ *  Returns length of src string
 */
 
 size_t  strlcpy(char *dst, const char *src, size_t size)
