@@ -1,20 +1,22 @@
 #include "libft.h"
 
+/**
+ * Note that we start checking from the null terminator so that the case where
+ * c == '\0' is taken care of
+ */
+
 char *ft_strrchr(const char *s, int c)
 {
-    size_t  i;
     size_t  len;
 
-    i = 0;
     if (!s)
         return (NULL);
-    len = ft_strlen(s);
-    if (c == '\0')
-        return ((char *)s + len);
-    while (len--)
+    len = strlen(s);
+    while (len >= 0)
     {
         if (s[len] == c)
             return ((char *)s + len);
+        len--;
     }
     return (NULL);
 }
