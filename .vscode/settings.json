@@ -4,6 +4,10 @@
         "array": "c",
         "string_view": "c",
         "initializer_list": "c",
-        "utility": "c"
+        "utility": "c",
+        "libft.h": "c",
+        "unistd.h": "c",
+        "string.h": "c",
+        "stdio.h": "c"
     }
 }

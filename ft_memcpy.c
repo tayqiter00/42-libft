@@ -3,6 +3,7 @@
 /**
  * Similar to memmove but only used for memory areas that don't overlap
  */
+
 void    *ft_memcpy(void *dest, const void *src, size_t n)
 {
     unsigned char   *p_dest;
