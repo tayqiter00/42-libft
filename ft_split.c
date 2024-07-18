@@ -16,7 +16,7 @@ static size_t  word_count(char const *s, char c)
     return (count);
 }
 
-static char **fill_str(char const *s, char c, size_t word_count, char **buffer)
+static char **fill_str(char const *s, char c, int word_count, char **buffer)
 {
     int     i;
     int     start;

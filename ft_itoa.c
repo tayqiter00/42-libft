@@ -5,6 +5,7 @@ static size_t  buffer_len(int n)
     long    num;
     size_t  len;
 
+    len = 0;
     num = n;
     if (n == 0)
         return (1);
