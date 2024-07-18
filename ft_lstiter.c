@@ -1,22 +1,22 @@
 #include "libft.h"
 // #include <stdio.h>
 
-int ft_lstsize(t_list *lst)
+void    ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    int     size;
-    t_list  *temp;
-
-    size = 0;
-    if (!lst)
-        return (size);
-    temp = lst;
-    while (temp != NULL)
+    if (!lst || !f)
+        return ;
+    while (lst)
     {
-        size++;
-        temp = temp->next;
+        f(lst->content);
+        lst = lst->next;
     }
-    return (size);
 }
+
+// static void print_content(void *arg)
+// {
+//     printf("%s\n", (char *)arg);
+// }
+
 // int main()
 // {
 //     t_list  *head;
@@ -26,14 +26,15 @@ int ft_lstsize(t_list *lst)
 //     head = NULL;
 //     for (int i = 0; i < 5; i++)
 //     {
-//         new = ft_lstnew("some content");
+//         new = ft_lstnew("banana");
 //         ft_lstadd_front(&head, new);
 //     }
-//     printf("size of list: %d\n", ft_lstsize(head));
+//     ft_lstiter(head, print_content);
 //     while (head)
 //     {
 //         temp = head;
 //         head = head->next;
 //         free(temp);
 //     }
+//     return (0);
 // }

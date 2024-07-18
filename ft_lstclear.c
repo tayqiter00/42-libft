@@ -1,12 +1,22 @@
 #include "libft.h"
 // #include <stdio.h>
 
-void    ft_lstdelone(t_list *lst, void (*del)(void *))
+/**
+ * "Finally, the pointer to the list must be set to NULL.""
+ */
+void    ft_lstclear(t_list **lst, void (*del)(void *))
 {
-    if (!lst || !del)
+    t_list  *temp;
+
+    if (!lst || !del || !(*lst))
         return ;
-        del(lst->content);
-        free(lst);
+    while (*lst)
+    {
+        temp = (*lst)->next;
+        ft_lstdelone(*lst, del);
+        *lst = temp;
+    }
+    *lst = NULL;
 }
 // static void delete_content(void *content)
 // {
@@ -16,9 +26,8 @@ void    ft_lstdelone(t_list *lst, void (*del)(void *))
 // int main()
 // {
 //     t_list  *head;
-//     t_list  *new;
 //     char    *content;
-//     t_list  *temp;
+//     t_list  *new;
 
 //     head = NULL;
 //     for (int i = 0; i < 5; i++)
@@ -28,15 +37,7 @@ void    ft_lstdelone(t_list *lst, void (*del)(void *))
 //         ft_lstadd_front(&head, new);
 //     }
 //     printf("list size before: %d\n", ft_lstsize(head));
-//     temp = head;
-//     head = head->next;
-//     ft_lstdelone(temp, delete_content);
+//     ft_lstclear(&head, delete_content);
 //     printf("list size after: %d\n", ft_lstsize(head));
-//     while (head)
-//     {
-//         temp = head;
-//         head = head->next;
-//         ft_lstdelone(temp, delete_content);
-//     }
 //     return (0);
 // }
